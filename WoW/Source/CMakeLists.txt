@@ -92,14 +92,7 @@ elseif(MSVC)
 endif()
 
 if(WIN32)
-    unset(D3DX9_IMPORT_LIBRARY CACHE)
-    find_library(
-        D3DX9_IMPORT_LIBRARY
-        d3dx9
-        PATHS
-            "$ENV{DXSDK_DIR}/Lib/x86"
-            "$ENV{DXSDK_DIR}/Lib"
-        NO_DEFAULT_PATH)
+    set(D3DX9_IMPORT_LIBRARY "${CMAKE_SOURCE_DIR}/ThirdParty/DXSDK/Lib/x86/d3dx9.lib")
     target_link_libraries(Wow PRIVATE
         comctl32
         winmm

@@ -31,7 +31,7 @@ endif()
 target_include_directories(Gx PRIVATE
     ..
     ../../../Storm/H
-    "$ENV{DXSDK_DIR}/Include"
+    "${CMAKE_SOURCE_DIR}/ThirdParty/DXSDK/Include"
 )
 
 if(MSVC_VERSION EQUAL 1200)
