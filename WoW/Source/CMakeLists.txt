@@ -57,6 +57,13 @@ target_sources(Wow PRIVATE
 
 if(WIN32)
     target_sources(Wow PRIVATE Client.rc)
+
+    # not our branding to distribute
+    if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/BlizzardIcon.ico")
+        set_property(SOURCE Client.rc APPEND PROPERTY COMPILE_DEFINITIONS HAVE_CLIENT_ICON)
+    endif()
+
+    set_property(SOURCE Client.rc APPEND PROPERTY COMPILE_DEFINITIONS HAVE_CLIENT_CURSOR)
 endif()
 
 target_include_directories(Wow PRIVATE
@@ -76,7 +83,7 @@ set_target_properties(Wow PROPERTIES
 )
 
 if(MSVC_VERSION EQUAL 1200)
-    target_compile_options(Wow PRIVATE /Gr /Z7)
+    target_compile_options(Wow PRIVATE /Gr /Zi)
 endif()
 
 if(MSVC)

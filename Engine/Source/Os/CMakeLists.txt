@@ -34,5 +34,5 @@ if(NOT EXISTS "${CMAKE_SOURCE_DIR}/ThirdParty/DXSDK/Include/dmusici.h")
 endif()
 
 if(MSVC_VERSION EQUAL 1200)
-    target_compile_options(Os PRIVATE /Gr /Z7)
+    target_compile_options(Os PRIVATE /Gr /Zi)
 endif()

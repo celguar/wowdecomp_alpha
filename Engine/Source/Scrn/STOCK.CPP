@@ -1,10 +1,11 @@
 #include <Base/Base.h>
 
 #include "Scrn.h"
+#include <Os/OsTime.h>
 
 #include <Base/Coordinate.h>
 #include <Base/Handle.h>
-#include <Gxu/IGxuFont.h>
+#include <Gxu/GxuFont.h>
 #include <Services/TextBlock.h>
 
 static HTEXTFONT__ *s_stockObjects[SCRNSTOCKOBJECTS];

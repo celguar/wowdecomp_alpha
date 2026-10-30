@@ -14,6 +14,7 @@ add_library(Storm STATIC
     SUnicode.cpp
     SZip.cpp
 
+    $<TARGET_OBJECTS:Pkware>
     $<TARGET_OBJECTS:Zlib>
 )
 
@@ -55,7 +56,7 @@ set_target_properties(Storm PROPERTIES
 )
 
 if(MSVC_VERSION EQUAL 1200)
-    target_compile_options(Storm PRIVATE /Gr /Ob0 /Z7 /YX)
+    target_compile_options(Storm PRIVATE /Gr /Ob0 /Zi /YX)
     set_property(DIRECTORY APPEND PROPERTY ADDITIONAL_CLEAN_FILES vc60.pch)
     target_compile_definitions(Storm PRIVATE Z_PREFIX)
 endif()
